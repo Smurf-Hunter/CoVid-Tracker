@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>CoViD Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .wrapper {
+            text-align: center;
+        }
+
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<h2 class="display-2" style="text-align: center">Go Karuna, Karuna Go :)</h2>
+
+    <p  style="text-align: center" class="lead">All data shown below is all I get from the source. It may not be the clear figures.</p>
+
+    <br/>
+    <p style="text-align: center" class="lead">Stay Safe, Stay inside. :) </p>
+
+    <br/>
+    <div class="wrapper">
+        <a href="/exit"><button type="button" style="alignment: center" class="btn btn-success">Exit Application</button></a>
+    </div>
+    <br/>
+    <p style="text-align: center" class="lead">Kindly exit the app before leaving. </p>
+
+
+<div class="jumbotron" style="text-align: center">
+    <h1 class="display-4" th:text="${total}">Refresh :)</h1>
+    <p class="lead">Total Cases</p>
+    <hr class="my-4">
+    <h3 class="display-5" th:text="${totalToday}">Refresh</h3>
+    <p class="lead">Current Day Cases</p>
+</div>
+
+
+<table style="text-align: center" class="table table-hover table-dark">
+    <tr>
+        <th>City</th>
+        <th>Country</th>
+        <th>Confirmed Cases</th>
+        <th>Current day</th>
+    </tr>
+    <tr th:each="corona : ${coronas}" >
+        <td th:text="${corona.city}"></td>
+        <td th:text="${corona.country}"> </td>
+        <td th:text="${corona.confirms}">0</td>
+        <td th:text="${corona.lastDay}">0</td>
+    </tr>
+</table>
+</div>
+
+
+</body>
+</html>
